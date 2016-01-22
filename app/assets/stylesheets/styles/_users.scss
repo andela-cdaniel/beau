@@ -1,0 +1,197 @@
+.users-welcome {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+
+  .main {
+    @include animation-name(fadeIn);
+    @include animation-duration(2s);
+    @include animation-timing-function(ease);
+    @include transition-duration(0.6s);
+  }
+}
+main {
+  height: 100vh;
+  z-index: 1;
+
+  &::after {
+    content: "";
+    background-color: $primary-color;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+    z-index: -1;
+  }
+
+  .logo {
+    color: #fff;
+    font-family: $logo-font;
+    font-size: $medium;
+    padding-top: em(15px);
+    display: block;
+  }
+
+  .content {
+    color: #fff;
+    margin-top: em(130px);
+
+    .btn {
+      display: inline-block;
+      font-weight: 700;
+      margin-right: em(10px);
+      margin-left: em(10px);
+      margin-top: em(15px);
+      height: auto;
+      line-height: inherit;
+      background-color: transparent;
+      box-shadow: none;
+      border: 3px solid #3F435F;
+      width: 212px;
+      padding: 15px;
+    }
+  }
+
+  .bg-vid {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -2;
+    width: 100%;
+    height: 100vh;
+
+    .vid {
+      width: 100%;
+    }
+  }
+}
+
+.users-register, .users-login, [class^="sessions-"] {
+  main {
+    background-color: $primary-color;
+
+    .content {
+      .btn {
+        border-color: #fff;
+      }
+
+      .note {
+        a {
+          color: #fff;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+// Rooms
+
+.channel-index, .channel-conversation {
+  overflow: hidden;
+
+  main {
+    background-color: #fff;
+
+    .sidebar {
+      background-color: $primary-color;
+      color: #fff;
+      height: 100vh;
+
+       .logo {
+          //color: $primary-color;
+          //text-align: center;
+        }
+
+        .user-options {
+          color: #fff;
+          padding-top: em(25px);
+          padding-bottom: em(25px);
+
+          .user-name {
+            color: #fff;
+          }
+
+          .dropdown-content {
+            width: 191px !important;
+            li {
+              a {
+                font-size: em(14px);
+                text-transform: capitalize;
+                color: $primary-color;
+              }
+            }
+          }
+
+        }
+
+        .online {
+          height: 400px;
+          overflow: auto;
+
+          .lens {
+            color: #4c9689;
+            font-size: 15px;
+            transform: translateY(6px);
+          }
+
+          a {
+            display: block;
+            padding-top: em(5px);
+            padding-bottom: em(5px);
+            color: #fff;
+          }
+        }
+
+    }
+
+    .messages-section {
+      height: 100vh;
+      overflow: auto;
+
+      .new-message {
+        .group {
+          position: relative;
+
+          input {
+            text-indent: 36px;
+          }
+
+          .forum {
+            opacity: 0.6;
+            position: absolute;
+            top: 12px;
+            left: 0;
+          }
+        }
+      }
+
+      .messages {
+        padding-top: em(35px);
+        padding-left: em(25px);
+
+        .message-content {
+          .time-period {
+            .message {
+              transition-duration: 0.6s;
+
+              .username {
+                font-weight: 700;
+              }
+
+              .timestamp.xs {
+                padding-left: em(15px);
+              }
+
+              .user-message {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

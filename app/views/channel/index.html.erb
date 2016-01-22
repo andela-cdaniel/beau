@@ -1,0 +1,82 @@
+<main>
+  <section class="fluid-wrapper">
+    <div class="row">
+      <div class="col s2 sidebar">
+        <div class="logo-wrap">
+          <%= link_to "Beau", root_path, class: "logo" %>
+        </div>
+
+        <div class="user-options" data-user="<%= current_user.username %>">
+          <a href="#!" data-activates="dropdown" class="dropdown-button user-name">
+            <%= current_user.username %> <i class="mdi-navigation-arrow-drop-down right"></i>
+          </a>
+
+          <ul id="dropdown" class="dropdown-content">
+            <li>
+              <a href="#!">
+                <i class="material-icons left">account_box</i> Account
+              </a>
+            </li>
+            <li>
+              <%= link_to raw("<i class='material-icons left'>power</i>Logout"), logout_path, method: :delete %>
+            </li>
+          </ul>
+        </div>
+
+        <div class="online">
+          <h5>
+            <i class="material-icons left lens">lens</i>Online
+          </h5>
+        </div>
+      </div>
+
+      <div class="col s10 messages-section">
+        <header>
+          <h3>
+            # General <small class="xs">Open to all and sundry</small>
+          </h3>
+        </header>
+
+        <div class="messages">
+          <form class="new-message" method="POST" action="#!">
+            <div class="group">
+              <input type="text" name="message[new]" placeholder="Enter your message here" required data-user-id="<%= current_user.id %>">
+              <i class="material-icons forum">forum</i>
+            </div>
+          </form>
+
+          <div class="message-content">
+            <% @messages.each do |k, v| %>
+              <div class="time-period">
+                <h5 class="center-align messages-date">
+                  <% if k.strftime("%B %e") == Time.now.strftime("%B %e") %>
+                    Today
+                  <% else %>
+                    <%= k.strftime("%B %e") %>
+                  <% end %>
+                </h5>
+
+                <% v.each do |obj| %>
+                  <p class="message">
+                    <span class="username">
+                      <%= obj.user.username %>
+                    </span>
+
+                    <span class="timestamp xs">
+                      <%= obj.created_at.strftime("%l:%M %p").strip %>
+                    </span>
+
+                    <span class="user-message">
+                      <%= obj.comment %>
+                    </span>
+                  </p>
+                <% end %>
+
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

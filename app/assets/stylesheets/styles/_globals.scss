@@ -1,0 +1,17 @@
+body {
+  font-size: $default-size;
+  font-family: $open-sans;
+  color: #666;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $source-sans;
+}
+
+.btn {
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}

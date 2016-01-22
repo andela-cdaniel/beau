@@ -1,0 +1,31 @@
+<main>
+  <section class="container">
+    <div class="row">
+      <div class="col s12 center-align">
+        <%= link_to "Beau.", root_path, class: "logo" %>
+
+        <div class="content">
+          <%= form_for :session, url: login_path do |f| %>
+            <div class="group">
+              <%= f.label :username %>
+              <%= f.text_field :username, required: true, pattern: "[A-z0-9]+" %>
+            </div>
+
+            <div class="group">
+              <%= f.label :password %>
+              <%= f.password_field :password, required: true %>
+            </div>
+
+            <div class="group">
+              <%= f.button "Login", class: "btn" %>
+            </div>
+
+            <p class="note center-align">
+              Don't have an account? <%= link_to "Register", register_path %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
