@@ -1,9 +1,17 @@
 (function () {
-  var dispatcher = new WebSocketRails("localhost:3000/websocket"),
+  var dispatcher = new WebSocketRails(hostName()),
       channel = dispatcher.subscribe("messages"),
       createMessage = $(".new-message"),
       newConversation = $(".new-conversation"),
       message = $("[name='message[new]']");
+
+  function hostName() {
+    if (location.port.length === 0) {
+      return location.hostname + "/websocket";
+    } else {
+      return location.hostname + ":" + location.port + "/websocket";
+    }
+  }
 
   dispatcher.on_open = function () {
     this.trigger("client_connected", "online");

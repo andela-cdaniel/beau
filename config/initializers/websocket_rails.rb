@@ -28,7 +28,7 @@ WebsocketRails.setup do |config|
   # Uncomment and edit to point to a different redis instance.
   # Will not be used unless standalone or synchronization mode
   # is enabled.
-  # config.redis_options = {:host => 'localhost', :port => '6379'}
+  config.redis_options = {:host => "ray.redistogo.com", :port => "10181"}
 
   # By default, all subscribers in to a channel will be removed
   # when that channel is made private. If you don't wish active
@@ -37,7 +37,7 @@ WebsocketRails.setup do |config|
   # config.keep_subscribers_when_private = false
 
   # Set to true if you wish to broadcast channel subscriber_join and
-  # subscriber_part events. All subscribers of a channel will be 
+  # subscriber_part events. All subscribers of a channel will be
   # notified when other clients join and part the channel. If you are
   # using the UserManager, the current_user object will be sent along
   # with the event.
@@ -58,6 +58,6 @@ WebsocketRails.setup do |config|
   # Supporting HTTP streaming on Internet Explorer versions 8 & 9
   # requires CORS to be enabled for GET "/websocket" request.
   # List here the origin domains allowed to perform the request.
-  # config.allowed_origins = ['http://localhost:3000']
+  # config.allowed_origins = ["http://localhost:3000"]
 
 end
